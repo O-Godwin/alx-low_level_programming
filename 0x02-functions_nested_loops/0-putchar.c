@@ -1,12 +1,24 @@
 #include "main.h"
 
 /**
- * main - check the code
+ * main - entry point
  *
- * Return: Always 0.
+ * Description: Prints _putchar
+ *
+ * Return: always 0
  */
+
 int main(void)
 {
-    print_alphabet();
-    return (0);
+	int i = 0;
+	char c;
+	char s[] = "_putchar\n";
+
+	while (i <= 9)
+	{
+		c = s[i];
+		_putchar(c);
+		i++;
+	}
+	return (0);
 }
