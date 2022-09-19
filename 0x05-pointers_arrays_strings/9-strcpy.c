@@ -1,18 +1,21 @@
-#include "main.h"
-
-/**
- * char *_strcpy - a function that copies the string pointed to by src
- * @dest: copy to
- * @src: copy from
- * Return: string
- */
-char *_strcpy(char *dest, char *src)
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+ 
+int main(void)
 {
-	int i = 0;
-
-	for (; src[i] != '\0'; i++)
-	{
-		dest[i] = src[i];
-	}
-	return (dest);
+    char *src = "Take the test.";
+//  src[0] = 'M' ; // this would be undefined behavior
+    char dst[strlen(src) + 1]; // +1 to accomodate for the null terminator
+    strcpy(dst, src);
+    dst[0] = 'M'; // OK
+    printf("src = %s\ndst = %s\n", src, dst);
+ 
+#ifdef __STDC_LIB_EXT1__
+    set_constraint_handler_s(ignore_handler_s);
+    int r = strcpy_s(dst, sizeof dst, src);
+    printf("dst = \"%s\", r = %d\n", dst, r);
+    r = strcpy_s(dst, sizeof dst, "Take even more tests.");
+    printf("dst = \"%s\", r = %d\n", dst, r);
+#endif
 }
