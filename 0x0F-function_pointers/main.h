@@ -1,6 +1,6 @@
 
-#ifndef FUNCTION_POINTERS_H
-#define FUNCTION_POINTERS_H
+#ifndef MAIN_H
+#define MAIN_H
 
 /*
  * File: function_pointers.h
