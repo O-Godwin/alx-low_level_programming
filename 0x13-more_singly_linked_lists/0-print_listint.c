@@ -1,12 +1,25 @@
-
-#include "holberton.h"
+#include <stdio.h>
+#include "lists.h"
 
 /**
- * reset_to_98 - Takes a pointer to an int and updates
- *               the value it points to to 98.
- * @n: The pointer to an int.
- */
-void reset_to_98(int *n)
+  * print_listint - Prints all the elements of a linked list
+  * @h: The head of the linked list
+  *
+  * Return: The number of nodes of the linked list
+  */
+size_t print_listint(const listint_t *h)
 {
-	*n = 98;
+	int count = 0;
+
+	if (h != NULL)
+	{
+		while (h)
+		{
+			printf("%d\n", h->n);
+			h = h->next;
+			count++;
+		}
+	}
+
+	return (count);
 }
