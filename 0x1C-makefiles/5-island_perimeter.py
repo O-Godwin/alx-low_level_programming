@@ -1,22 +1,19 @@
-#!/usr/bin/python3
-"""5-island_perimeter module"""
+CC=gcc
+SRC=main.c school.c
+OBJ=$(SRC:%.c=%.o)
+NAME=school
+RM=rm -f
+CFLAGS=-Wall -Werror -Wextra -pedantic
 
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 
-def island_perimeter(grid):
-    """Returns the perimeter of the island described in grid"""
-    c = 0
-    length = len(grid) - 1
-    width = len(grid[0]) - 1
+clean:
+	$(RM) *~ $(NAME)
 
-    for i, r in enumerate(grid):
-        for j, n in enumerate(r):
-            if n == 1:
-                if i == 0 or grid[i - 1][j] != 1:
-                    c += 1
-                if j == 0 or grid[i][j - 1] != 1:
-                    c += 1
-                if j == width or grid[i][j + 1] != 1:
-                    c += 1
-                if i == length or grid[i + 1][j] != 1:
-                    c += 1
-    return 
+oclean:
+	$(RM) $(OBJ)
+
+fclean: clean oclean
+
+re: oclean all
